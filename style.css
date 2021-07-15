@@ -1,0 +1,277 @@
+:root{
+    --DesaturatedRed: hsl(0, 36%, 70%);
+    --SoftRed: hsl(0, 93%, 68%);
+    --DarkGrayishRed: hsl(0, 6%, 24%);
+    --Linear1: 135deg,  hsl(0, 0%, 100%),  hsl(0, 100%, 98%);
+    --Linear2: 135deg,  hsl(0, 80%, 86%),  hsl(0, 74%, 74%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+}
+body{
+    max-width: 1440px;
+    
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin: auto;
+    background: linear-gradient(135deg,  hsl(0, 0%, 100%),  hsl(0, 100%, 98%));
+}
+
+.card{
+    width: 100%;
+    /* max-height: 780px; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    align-items: center;
+    overflow: hidden;
+}
+
+.logo-area{
+    width: 375px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-area img{
+    width: 130px;
+    padding-left: 35px;
+}
+
+.pic-area{
+    max-width: 571px;
+    height: auto;
+    border: green 1px solid;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.desktop-pic{
+    display: none;
+}
+
+.txt-area{
+    width: 375px;
+    height: 340px;
+    text-align: center;
+    padding-top: 60px;
+    box-sizing: border-box;
+    color: var(--DesaturatedRed);
+}
+.txt-area h1{
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: 300;
+    letter-spacing: 8px;
+    line-height: 45px;
+    animation: comeFromRight .8s ease forwards;
+    
+}
+.txt-area h1:nth-child(2){
+    font-size: 42px;
+    font-weight: 400;
+    color: #000;
+    animation: comeFromLeft .8s ease forwards;
+}
+
+.txt-area p{
+    padding: 10px 35px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 25px;
+    animation: comeFromRight .8s ease forwards;
+}
+.email-area{
+    width: 375px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+#email{
+    height: 50px;
+    width: 90%;
+    border-radius: 50px;
+    border: var(--DesaturatedRed) 1px solid;
+    font-size: 15px;
+    font-weight: 200;
+    padding-left: 20px;
+}
+#email:focus, #email:hover {
+	border-width: 2px;
+	box-shadow: 0px 0px 10px hsla(0, 36%, 70%, 0.5);
+	outline: none;
+}
+
+.email-area button{
+    height: 0;
+    cursor: pointer;
+}
+.icon-arrow{
+    position: absolute;
+    background:linear-gradient(135deg,  hsl(0, 80%, 86%),  hsl(0, 74%, 74%));
+    width: 20px;
+    padding: 10px 28px;
+    border-radius: 30px;
+    right: 10px;
+    top: 0;
+}
+
+button:hover {
+	opacity: 0.6;
+}
+
+.icon-error{
+    position: absolute;
+    top: 15px;
+    right: 95px;
+    display: none;
+}
+
+.error-msg{
+    position: absolute;
+    bottom: -2px;
+    left: 20px;
+    color: var(--SoftRed);
+    display: none;
+}
+
+
+.email-area.error .icon-error{
+    display: block;
+}
+
+.email-area.error .error-msg{
+    display: block;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@keyframes comeFromLeft{
+    from {
+        transform: translateX(-500%); 
+      }    
+      to {
+        transform: translateX(0%);
+      }
+}
+@keyframes comeFromRight{
+    from {
+        transform: translateX(500%); 
+      }    
+      to {
+        transform: translateX(0%);
+      }
+}
+
+@media only screen and (min-width: 790px) {
+    .body{
+          width: 100%;
+          background: url(./images/bg-pattern-desktop.svg) no-repeat;
+    }
+    .container{
+        align-items: center
+    }
+    .card{
+        max-width: 1440px;
+        height: 650px;
+        position: relative;
+        align-items: normal
+      }
+
+      
+    .pic-area{
+        width: 45%;
+        height: 650px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        overflow: hidden;
+    }
+    .mobile-pic{
+        display: none;
+    }
+        
+    .desktop-pic{
+        display: block;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .logo-area, .txt-area, .email-area{
+        width: 50%;
+        max-width: 720px;
+        text-align: left;
+        margin-left: 10%;
+    }
+    .logo-area{
+        height: 180px;
+        width: 20%;
+    }
+    .txt-area{
+        padding-left: 20px;
+        height: 600px;
+    }
+    .txt-area h1{
+        font-size: 70px;
+    }
+    .txt-area h1:nth-child(2){
+        padding: 40px 150px 0 0 ;
+        font-size: 65px;
+        line-height: 70px;
+        letter-spacing: 10px;
+    }
+    .txt-area p{
+        padding: 50px 150px 0 0 ;
+
+    }
+    .email-area{
+        height: 30%;
+        width: 50%;
+        justify-content: normal;
+        padding: 50px 20px 50px 20px;
+        box-sizing: border-box;
+    }
+    #email{
+        width: 58%;
+        min-width: 230px;
+        border-right: none;
+    }
+    .icon-arrow{
+        left: 50%;
+        top: 50px;
+    }
+    .icon-error{
+        left: 45%;
+        top: 41%;
+    }
+    .error-msg{
+        bottom: 15px;
+        left: 40px;
+    }
+    
+}

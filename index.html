@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+
+  <title>Frontend Mentor | Base Apparel coming soon page</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="logo-area">
+        <img src="./images/logo.svg" alt="logo">
+      </div>
+      <div class="pic-area">
+        <img class="mobile-pic" src="./images/hero-mobile.jpg" alt="mobile-pic">
+        <img class="desktop-pic " src="./images/hero-desktop.jpg" alt="desktop-pic">
+      </div>
+      <div class="txt-area">
+        <h1>We're </h1>
+        <h1>coming soon</h1>
+        <p>
+          Hello fellow shoppers! We're currently building our new fashion store.
+          Add your email below to stay up-to-date with announcements and our launch deals.
+        </p>
+      </div>
+      <form class="email-area ">
+        <input id="email" type="email" name="email" placeholder="Email Address">
+        <button>
+          <img class="icon-arrow" src="./images/icon-arrow.svg" alt="icon-arrow">
+        </button>
+        <img class="icon-error " src="./images/icon-error.svg" alt="icon-error">
+        <P class="error-msg ">Please provide a valid email</P>
+      </form>
+    </div>
+
+  </div>
+
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">cc Lin</a>.
+    </p>
+  </footer>
+  <script>
+    const form = document.querySelector('.email-area');
+    const email = document.querySelector('#email');
+    const submitButton = document.querySelector('.icon-arrow')
+    
+    function emailRuleChecking(email) {
+      const emailRule = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return emailRule.test(String(email).toLowerCase());//true or false
+    }
+
+    function checkEmailFormat(e) {
+      console.log(e);//submit event
+      
+      e.preventDefault();//cancel default function of Submit 
+      const emailValue = email.value;
+      if (!emailRuleChecking(emailValue)) {
+        form.classList.add('error');
+      } else {
+        form.classList.remove('error');
+        document.body.innerHTML = `<div style="display:flex; align-items: center; justify-content: center;"><h1>Thank you!</h1></div>`;
+      }
+    }
+    form.addEventListener('submit', checkEmailFormat);
+    submitButton.addEventListener('click', checkEmailFormat)
+
+  </script>
+</body>
+
+</html>
