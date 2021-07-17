@@ -12,12 +12,13 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 body{
+    height: 100%;
     max-width: 1440px;
     
 }
 .container{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -194,7 +195,8 @@ footer{
           background: url(./images/bg-pattern-desktop.svg) no-repeat;
     }
     .container{
-        align-items: center
+        align-items: center;
+        height: 100vh;
     }
     .card{
         max-width: 1440px;
